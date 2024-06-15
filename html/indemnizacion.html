@@ -19,44 +19,41 @@
                     class="img-fluid float-start col-3 " alt=" ...">
             </section>
             <section id="menuRedesSociales" class="col-12 col-md-6 d-flex justify-content-end p-3 h-100">
-                <div class="btn-group col-3 d-flex justify-content-end" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-image-bg"><a
-                            href="https://www.facebook.com/intecapoficial/?locale=es_LA"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt=""
-                                style="width: 20px; height: 20px;"></a></button>
-                    <button type="button" class="btn btn-image-bg">
-                        <a href="https://twitter.com/intecapoficial?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img
-                                src="https://img.freepik.com/premium-vector/new-twitter-logo-x-with-circle-badge_692249-33.jpg"
-                                alt="" style="width: 20px; height: 20px;"></a></button>
-                    <button type="button" class="btn btn-image-bg"><a
-                            href="https://www.instagram.com/intecapoficial/?hl=es"><img
-                                src="https://rukminim2.flixcart.com/image/850/1000/ky4qgsw0/poster/u/f/6/small-instagram-logo-multicolor-photopaper-print-12-inch-x-18-original-imagafe2hyppqghs.jpeg?q=20&crop=false"
-                                alt="" style="width: 20px; height: 20px;"></a></button>
-                    <button type="button" class="btn btn-image-bg"> <a href="https://www.youtube.com/intecapoficial"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt=""
-                                style="width: 20px; height: 20px;"></a></button>
-                    <button type="button" class="btn btn-image-bg"><a
-                            href="https://gt.linkedin.com/school/intecapoficial/"><img
-                                src="https://blog.waalaxy.com/wp-content/uploads/2021/01/LinkedIn-Symbole.png" alt=""
-                                style="width: 20px; height: 20px;"></a></button>
+                <div class="btn-group col-3 d-flex justify-content-end" role="group" aria-label="Social media links">
+                    <a class="btn btn-image-bg" href="https://www.facebook.com/intecapoficial/?locale=es_LA"  aria-label="Facebook">
+                        <img src="../img/DeviconFacebook.svg" alt="Facebook logo" width="25" height="25">
+                    </a>
+                    <a class="btn btn-image-bg" href="https://twitter.com/intecapoficial?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"  aria-label="Twitter">
+                        <img src="../img/PrimeTwitter.svg" alt="Twitter logo" width="25" height="25">
+                    </a>
+                    <a class="btn btn-image-bg" href="https://www.instagram.com/intecapoficial/?hl=es"  aria-label="Instagram">
+                        <img src="../img/SkillIconsInstagram.svg" alt="Instagram logo" width="25" height="25">
+                    </a>
+                    <a class="btn btn-image-bg" href="https://www.youtube.com/intecapoficial"  aria-label="YouTube">
+                        <img src="../img/LogosYoutubeIcon.svg" alt="YouTube logo" width="25" height="25">
+                    </a>
+                    <a class="btn btn-image-bg" href="https://gt.linkedin.com/school/intecapoficial/"  aria-label="LinkedIn">
+                        <img src="../img/LogosLinkedinIcon.svg" alt="LinkedIn logo" width="25" height="25">
+                    </a>
                 </div>
+                
             </section>
         </section>        
     </header>
-    <nav class="container-fluid p-4 border border-dark">
-        <section class="row">
-            <ul class="nav justify-content-center navmod">
+    <nav class="container-fluid ">
+        <div class="row d-flex justify-content-center">
+            <ul class="nav justify-content-center navmod col-12">
                 <li class="nav-item mt-2 mb-2">
                     <a class="nav-link text-dark" aria-current="page" href="../index.html">Inicio</a>
                 </li>
-                <li class="nav-item  mt-2 mb-2">
-                    <a class="nav-link text-dark" href="html/sueldoliquido.html">Sueldo Líquido</a>
+                <li class="nav-item mt-2 mb-2">
+                    <a class="nav-link text-dark" href="../html/sueldoliquido.html">Sueldo Líquido</a>
                 </li>
-                <li class="nav-item  mt-2 mb-2">
-                    <a class="nav-link text-dark" href="html/indemnizacion.html">Indemnización</a>
+                <li class="nav-item mt-2 mb-2">
+                    <a class="nav-link text-dark" href="../html/indemnizacion.html">Indemnización</a>
                 </li>
             </ul>
-        </section>
+        </div>
     </nav>
     <main class="container-fluid p-4 ">
         <section class="row">
@@ -64,9 +61,9 @@
                 <article class="row ">
                     <section class="col-12 ">
                         <section class="row" >
-                                <article class="p-3 h-100 col-12 border border-dark ">
-                                    <h1>Indemnización.</h1>
-                                    <section class="p-3 h-100 border border-dark">
+                                <article class="p-3 h-100 col-12 ">                                    
+                                    <section class="p-3 h-100 border border-dark bg-container">
+                                        <h1>Indemnización.</h1>
                                         <label for="inputsalario">Sueldo Base:</label>
                                         <div class=" input-group mb-3 ">
                                             <span class=" input-group-text">Q.</span>
@@ -102,22 +99,23 @@
                                             <input type="number" id="inputcomisiones" class="form-control col-10"
                                                 aria-label="Total Quetzales">
                                         </div>
-                                    </section>
-                                   <section class="col-12 d-flex flex-column justify-content-center align-items-center">
-                                            <button class="btn btn-primary col-12 btn-grad" type="button" id="calcular"
+                                        <section class="col-12 d-flex flex-column justify-content-center align-items-center p-4 ">
+                                            <button class="btn btn-primary col-8 btn-grad" type="button" id="calcular"
                                                 onclick="totalIndemnizacion()">Obtener Indemnización.</button>
                                                 <h3>Total indemnización:</h3> 
                                                 <textarea class="form-control customtxt" id="total" rows="3" readonly
                                             placeholder="total Indemnizacion"></textarea>        
                                         <br>
                                     </section>
+                                    </section>
+                                  
                                 </article>   
                         </section>
                     </section>
                 </article>
             </section>
             <section class="col-md-3">
-                <article class="col-12 p-3 h-100  border border-dark ">
+                <article class="col-12 p-3 h-100">
                     <article class="p-3 h-100 d-flex justify-content-center row">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKihiREENTwcYRILZ0HA9J64odhk24I4kgXs3RtMw-IA&s"
                             class="img-fluid float-start  " alt="...">
