@@ -27,19 +27,19 @@ var SueldoLiquido = /** @class */ (function () {
     };
     SueldoLiquido.prototype.calcularIggs = function () {
         this.igss = this.salario * 0.0483;
-        return "El total del IGSS es: Q".concat(this.igss.toFixed(2));
+        return this.igss;
     };
     SueldoLiquido.prototype.calcularTotalGanado = function () {
         this.totalGanado = this.salario + this.bonificacion + this.comisiones;
-        return "El total ganado es: Q".concat(this.totalGanado.toFixed(2));
+        return this.totalGanado;
     };
     SueldoLiquido.prototype.calcularTotalDescuento = function () {
         this.totalDescuento = this.prestamoDescuento + this.igss + this.ahorro;
-        return "El total de descuento es: Q".concat(this.totalDescuento.toFixed(2));
+        return this.totalDescuento;
     };
     SueldoLiquido.prototype.calcularSueldoLiquido = function () {
         this.sueldoLiquido = this.totalGanado - this.totalDescuento;
-        return "El sueldo l\u00EDquido es: Q".concat(this.sueldoLiquido.toFixed(2));
+        return this.sueldoLiquido;
     };
     return SueldoLiquido;
 }());
@@ -49,34 +49,28 @@ var resultadoIgss = document.getElementById('inputIgss');
 var resultadoTotalGanado = document.getElementById('totalGanado');
 var resultadoTotalDescuento = document.getElementById('totalDescuento');
 function obtenerValores() {
-    // Obtener los valores de los inputs
-    var inputSalario = document.getElementById("inputSalario");
-    var inputBonificacion = document.getElementById("inputBonificacion");
-    var inputComisiones = document.getElementById("inputComisiones");
-    var inputPrestamos = document.getElementById("inputPrestamos");
-    var inputAhorro = document.getElementById("inputAhorro");
-    // Verificar si alguno de los campos está vacío
-    if (!inputSalario.value.trim() ||
-        !inputBonificacion.value.trim() ||
-        !inputComisiones.value.trim() ||
-        !inputPrestamos.value.trim() ||
-        !inputAhorro.value.trim()) {
-        alert("Todos los campos deben estar llenos.");
-        return false; // Retorna false si hay un campo vacío
+    var inputs = ["inputSalario", "inputBonificacion", "inputComisiones", "inputPrestamos", "inputAhorro"];
+    for (var _i = 0, inputs_1 = inputs; _i < inputs_1.length; _i++) {
+        var id = inputs_1[_i];
+        var input = document.getElementById(id);
+        if (input.value.trim() === "" || isNaN(parseFloat(input.value))) {
+            alert("Por favor, llene todos los campos con valores numéricos válidos");
+            return false;
+        }
     }
-    // Asignar los valores a las propiedades de la clase
-    sueldoLiquido.asignarSalario(parseFloat(inputSalario.value));
-    sueldoLiquido.asignarBonificacion(parseFloat(inputBonificacion.value));
-    sueldoLiquido.asignarComisiones(parseFloat(inputComisiones.value));
-    sueldoLiquido.asignarPrestamoDescuento(parseFloat(inputPrestamos.value));
-    sueldoLiquido.asignarAhorro(parseFloat(inputAhorro.value));
-    return true; // Retorna true si todos los campos están llenos
+    sueldoLiquido.asignarSalario(parseFloat(document.getElementById("inputSalario").value));
+    sueldoLiquido.asignarBonificacion(parseFloat(document.getElementById("inputBonificacion").value));
+    sueldoLiquido.asignarComisiones(parseFloat(document.getElementById("inputComisiones").value));
+    sueldoLiquido.asignarPrestamoDescuento(parseFloat(document.getElementById("inputPrestamos").value));
+    sueldoLiquido.asignarAhorro(parseFloat(document.getElementById("inputAhorro").value));
+    return true;
 }
 function calcularSueldoLiquido() {
-    if (obtenerValores()) { // Sólo continua si obtenerValores retorna true
-        resultadoIgss.value = sueldoLiquido.calcularIggs();
-        resultadoTotalGanado.textContent = sueldoLiquido.calcularTotalGanado();
-        resultadoTotalDescuento.textContent = sueldoLiquido.calcularTotalDescuento();
-        resultadoSueldoLiquido.textContent = sueldoLiquido.calcularSueldoLiquido();
+    if (obtenerValores()) {
+        var igss = sueldoLiquido.calcularIggs();
+        resultadoIgss.value = igss.toFixed(2);
+        resultadoTotalGanado.textContent = sueldoLiquido.calcularTotalGanado().toFixed(2);
+        resultadoTotalDescuento.textContent = sueldoLiquido.calcularTotalDescuento().toFixed(2);
+        resultadoSueldoLiquido.textContent = sueldoLiquido.calcularSueldoLiquido().toFixed(2);
     }
 }
