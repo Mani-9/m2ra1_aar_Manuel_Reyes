@@ -1,5 +1,7 @@
+/**Definición de la clase SueldoLiquido para calcular el sueldo líquido de un empleado */
 var SueldoLiquido = /** @class */ (function () {
     function SueldoLiquido() {
+        /**Propiedades privadas que almacenan los valores para el cálculo */
         this.salario = 0;
         this.bonificacion = 0;
         this.comisiones = 0;
@@ -25,29 +27,36 @@ var SueldoLiquido = /** @class */ (function () {
     SueldoLiquido.prototype.asignarAhorro = function (valor) {
         this.ahorro = valor;
     };
+    /**Método para calcular la contribución al IGSS */
     SueldoLiquido.prototype.calcularIggs = function () {
         this.igss = this.salario * 0.0483;
         return this.igss;
     };
+    /**Método para calcular el total ganado antes de descuentos */
     SueldoLiquido.prototype.calcularTotalGanado = function () {
         this.totalGanado = this.salario + this.bonificacion + this.comisiones;
         return this.totalGanado;
     };
+    /**Método para calcular el total de descuentos */
     SueldoLiquido.prototype.calcularTotalDescuento = function () {
         this.totalDescuento = this.prestamoDescuento + this.igss + this.ahorro;
         return this.totalDescuento;
     };
+    /**Método para calcular el sueldo líquido después de descuentos */
     SueldoLiquido.prototype.calcularSueldoLiquido = function () {
         this.sueldoLiquido = this.totalGanado - this.totalDescuento;
         return this.sueldoLiquido;
     };
     return SueldoLiquido;
 }());
+/**Crear una instancia de la clase SueldoLiquido*/
 var sueldoLiquido = new SueldoLiquido();
+/**Funciones para obtener los valores de los inputs y mostrar los resultados en el DOM*/
 var resultadoSueldoLiquido = document.getElementById('sueldoLiquido');
 var resultadoIgss = document.getElementById('inputIgss');
 var resultadoTotalGanado = document.getElementById('totalGanado');
 var resultadoTotalDescuento = document.getElementById('totalDescuento');
+/**Función para obtener y validar los valores de entrada del usuario */
 function obtenerValores() {
     var inputs = ["inputSalario", "inputBonificacion", "inputComisiones", "inputPrestamos", "inputAhorro"];
     for (var _i = 0, inputs_1 = inputs; _i < inputs_1.length; _i++) {
@@ -65,6 +74,7 @@ function obtenerValores() {
     sueldoLiquido.asignarAhorro(parseFloat(document.getElementById("inputAhorro").value));
     return true;
 }
+/*Función para calcular y mostrar el sueldo líquido después de descuentos */
 function calcularSueldoLiquido() {
     if (obtenerValores()) {
         var igss = sueldoLiquido.calcularIggs();

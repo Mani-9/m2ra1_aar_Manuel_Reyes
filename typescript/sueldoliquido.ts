@@ -1,4 +1,6 @@
+/**Definición de la clase SueldoLiquido para calcular el sueldo líquido de un empleado */
 class SueldoLiquido {
+    /**Propiedades privadas que almacenan los valores para el cálculo */
     private salario: number = 0;
     private bonificacion: number = 0;
     private comisiones: number = 0;
@@ -28,35 +30,35 @@ class SueldoLiquido {
     public asignarAhorro(valor: number): void {
         this.ahorro = valor;
     }
-
+    /**Método para calcular la contribución al IGSS */
     public calcularIggs(): number {
         this.igss = this.salario * 0.0483;
         return this.igss;
     }
-
+    /**Método para calcular el total ganado antes de descuentos */
     public calcularTotalGanado(): number {
         this.totalGanado = this.salario + this.bonificacion + this.comisiones;
         return this.totalGanado;
     }
-
+    /**Método para calcular el total de descuentos */
     public calcularTotalDescuento(): number {
         this.totalDescuento = this.prestamoDescuento + this.igss + this.ahorro;
         return this.totalDescuento;
     }
-
+    /**Método para calcular el sueldo líquido después de descuentos */
     public calcularSueldoLiquido(): number {
         this.sueldoLiquido = this.totalGanado - this.totalDescuento;
         return this.sueldoLiquido;
     }
 }
-
+/**Crear una instancia de la clase SueldoLiquido*/
 const sueldoLiquido = new SueldoLiquido();
-
+/**Funciones para obtener los valores de los inputs y mostrar los resultados en el DOM*/
 const resultadoSueldoLiquido = document.getElementById('sueldoLiquido') as HTMLTextAreaElement;
 const resultadoIgss = document.getElementById('inputIgss') as HTMLInputElement;
 const resultadoTotalGanado = document.getElementById('totalGanado') as HTMLTextAreaElement;
 const resultadoTotalDescuento = document.getElementById('totalDescuento') as HTMLTextAreaElement;
-
+/**Función para obtener y validar los valores de entrada del usuario */
 function obtenerValores(): boolean {
     const inputs = ["inputSalario", "inputBonificacion", "inputComisiones", "inputPrestamos", "inputAhorro"];
     for (let id of inputs) {
@@ -75,7 +77,7 @@ function obtenerValores(): boolean {
 
     return true;
 }
-
+/*Función para calcular y mostrar el sueldo líquido después de descuentos */
 function calcularSueldoLiquido() {
     if (obtenerValores()) {
         const igss = sueldoLiquido.calcularIggs();
